@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="Combining flow matching and depth priors for efficient navigation">
+  <meta name="keywords" content="FlowNav">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FlowNav: Learning Efficient Navigation Policies via Conditional Flow Matching</title>
+  <title>FlowNav: Combining Flow Matching and Depth Priors for Efficient Navigation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -32,7 +32,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="./static/images/utn.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -88,29 +88,32 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">FlowNav: Learning Efficient Navigation Policies via Conditional Flow Matching</h1>
+          <h1 class="title is-1 publication-title">FlowNav: Combining Flow Matching and Depth Priors for Efficient Navigation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://samirangode.github.io/">Samiran Gode*</a>,</span>
+              <a href="https://samirangode.github.io/">Samiran Gode*</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://abhijeetknayak.github.io/">Abhijeet Nayak*</a>,</span>
+              <a href="https://abhijeetknayak.github.io/">Abhijeet Nayak*</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=wbhS4_sAAAAJ&hl=en">Debora N.P Oliveira*</a>,</span>
+              <a href="https://scholar.google.com/citations?user=wbhS4_sAAAAJ&hl=en">Debora N.P. Oliveira*</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://www.utn.de/en/person/michael-krawez/">Michael Krawez</a>,</span>
+              <a href="https://www.utn.de/en/person/michael-krawez/">Michael Krawez</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://www.utn.de/person/wolfram-burgard-2/">Wolfram Burgard</a></span>
+              <a href="https://cordeliaschmid.github.io/">Cordelia Schmid</a><sup>2</sup></span>      
+            <span class="author-block">
+              <a href="https://www.utn.de/person/wolfram-burgard-2/">Wolfram Burgard</a><sup>1</sup></span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">University of Technology, Nuremberg</span>
+            <span class="author-block"><sup>1</sup> University of Technology, Nuremberg</span>
+            <span class="author-block"><sup>2</sup> Inria, Ecole Normale Superieure, CNRS, PSL Research University, France.</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -119,7 +122,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -129,7 +132,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -139,7 +142,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -149,7 +152,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
@@ -169,14 +172,14 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
+        <source src="./static/videos/k_variation.mp4"
                 type="video/mp4">
       </video>
-      <h2 class="subtitle has-text-centered">
+      <!-- <h2 class="subtitle has-text-centered">
         <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
         free-viewpoint
         portraits.
-      </h2>
+      </h2> -->
     </div>
   </div>
 </section>
@@ -188,49 +191,49 @@
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
+            <source src="./static/videos/corridor_right_stop_at_door.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-chair-tp">
           <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
+            <source src=""
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-shiba">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
+            <source src=""
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-fullbody">
           <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
+            <source src=""
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
+            <source src=""
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-mask">
           <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
+            <source src=""
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-coffee">
           <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
+            <source src=""
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-toby">
           <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
+            <source src=""
                     type="video/mp4">
           </video>
         </div>
