@@ -97,22 +97,22 @@
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=wbhS4_sAAAAJ&hl=en">Debora N.P. Oliveira*</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://www.utn.de/en/person/michael-krawez/">Michael Krawez</a><sup>1</sup>,</span>
+              <a href="https://www.utn.de/en/person/michael-krawez/">Michael Krawez</a><sup>1</sup>,</span></br>
             <span class="author-block">
-              <a href="https://cordeliaschmid.github.io/">Cordelia Schmid</a><sup>2</sup></span>      
+              <a href="https://cordeliaschmid.github.io/">Cordelia Schmid</a><sup>2</sup> and </span>    
             <span class="author-block">
               <a href="https://www.utn.de/person/wolfram-burgard-2/">Wolfram Burgard</a><sup>1</sup></span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup> University of Technology, Nuremberg</span>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup> University of Technology Nuremberg</span></br>
             <span class="author-block"><sup>2</sup> Inria, Ecole Normale Superieure, CNRS, PSL Research University, France.</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
-              <!-- <span class="link-block">
+              <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -120,7 +120,7 @@
                   </span>
                   <span>Paper</span>
                 </a>
-              </span> -->
+              </span>
               <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
@@ -150,16 +150,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
-              </span> -->
             </div>
 
           </div>
@@ -231,12 +221,11 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>Effective robot navigation in dynamic environments is a challenging task that requires precise control actions at high frequencies. 
-            Recent advances have framed navigation as a goal-conditioned control problem. Current state-of-the-art methods for image-goal-based navigation, such as diffusion policies, either generate sub-goal images or robot control actions to guide robots. However, despite their promising results, these models are computationally expensive and struggle from weak perception, which need to be improved for reliable real-world deployment. To address these limitations, we present <span class="dnerf">FlowNav</span>, a novel approach that uses the CFM framework, a more efficient and robust generalization of diffusion, to learn action policies for robot navigation.
+          
+          <p>Effective robot navigation in unseen environments is a challenging task that requires precise control actions at high frequencies. Recent advances have framed it as an image-goal-conditioned control problem, where the robot generates navigation actions using frontal RGB images. Current state-of-the-art methods in this area use diffusion policies to generate these control actions. Despite their promising results, these models are computationally expensive and suffer from weak perception. 
           </p>
           <p>
-            As our first contribution, we show that CFM matches the accuracy of diffusion policies while offering significant runtime improvements. Our second contribution improves perception by leveraging depth priors in the form of embeddings from foundation models for monocular depth estimation, significantly improving navigation accuracy.
-            Through our experiments, we show that CFM not only speeds up action generation, but also enables better learning from depth priors, outperforming diffusion-based baselines in both runtime and robustness. As a result, our method enables more accurate and reliable robot navigation. 
+            To address these limitations, we present  <span class="dnerf">FlowNav</span>, a novel approach that uses a combination of Conditional Flow Mating (CFM) and depth priors from off-the-shelf foundation models to learn action policies for robot navigation.  FlowNav is significantly more accurate at navigation and exploration than state-of-the-art methods. We validate our contributions using real robot experiments in multiple unseen environments, demonstrating improved navigation reliability and accuracy.
           </p>
         </div>
       </div>
@@ -244,16 +233,16 @@
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <p><b>Video will be released shortly</p></b>
-        <!-- <div class="publication-video">
+        <div class="publication-video">
           <iframe src=""
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div> -->
+        </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Paper video. -->
   </div>
 </section>
@@ -267,13 +256,13 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Comparing with Diffusion models</h2>
+        <h2 class="title is-3">Comparing  <span class="dnerf">FlowNav</span> with Diffusion models</h2>
 
         <!-- Re-rendering. -->
         <h3 class="title is-4">Depth priors</h3>
         <div class="content has-text-justified">
           <p>
-            <span class="dnerf">FlowNav</span> demonstrates that including depth priors during model training helps the model learn better action policies for robot navigation.
+            <span class="dnerf">FlowNav</span> demonstrates that including depth priors during model training helps the model more representative better action policies for robot navigation.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -317,16 +306,17 @@
   </div>
 </section>
 
-
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre>
-      <!-- <code>
-        @article{park2021nerfies,
-          author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-          title     = {Nerfies: Deformable Neural Radiance Fields}, journal = {ICCV}, year = {2021},}
-      </code> -->
+<code>@article{gode2025flownav,
+    author = {Gode, Samiran and Oliveira, Débora N.P. and Nayek, Abhijeet and Krawez, Michael and Schmid, Cordelia and Burgard, Wolfram},
+    title = {FlowNav: Combining Flow Matching and Depth Priors for Efficient Navigation}, 
+    journal = {arXiv pre-print}, 
+    year = {2025},
+    url = {}
+}</code>
     </pre>
   </div>
 </section>
@@ -337,8 +327,8 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content has-text-centered">
-          Website borrowed from <a
-          href="https://github.com/nerfies/nerfies.github.io">here</a>.
+          Website borrowed from  <span class="dnerf"><a
+          href="https://github.com/nerfies/nerfies.github.io">Nerfies</a></span>.
         </div>
       </div>
     </div>
