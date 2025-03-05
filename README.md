@@ -1,14 +1,20 @@
-# Nerfies
+# FlowNav
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+This is the repository that contains source code for the [FlowNav website](https://utn-air.github.io/flownav.github.io/).
 
-If you find Nerfies useful for your work please cite:
+Template design by [Nerfies website](https://nerfies.github.io).
+
+If you find FlowNav useful for your work please cite:
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+@misc{gode2025flownavcombiningflowmatching,
+      title={FlowNav: Combining Flow Matching and Depth Priors for Efficient Navigation}, 
+      author={Gode, Samiran and Nayak, Abhijeet and Oliveira, Débora N.P. and  and Krawez, Michael 
+              and Schmid, Cordelia and Burgard, Wolfram},
+      year={2025},
+      eprint={2411.09524},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2411.09524}, 
 }
 ```
 
